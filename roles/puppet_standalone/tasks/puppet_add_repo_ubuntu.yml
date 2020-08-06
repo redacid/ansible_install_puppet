@@ -2,8 +2,8 @@
 #  package_facts:
 #    manager: "auto"
 
-- name: show puppet version
-  debug: var=ansible_facts.packages.puppet[0].version
+#- name: show puppet version
+#  debug: var=ansible_facts.packages.puppet[0].version
 
 - name: Install the puppet deb from a remote repo (Ubuntu)
   apt:
@@ -15,5 +15,5 @@
   apt:
     update_cache: yes
 
-#- debug:
-#    msg: https://apt.puppet.com/puppet6-release-{{ansible_distribution_release}}.deb
+- debug:
+    msg: https://apt.puppet.com/puppet6-release-{{ansible_distribution_release}}.deb

@@ -19,7 +19,7 @@
     state: absent
     #purge: yes
   become: true
-  when: ansible_distribution == 'Ununtu'
+  #when: ansible_distribution == 'Ununtu'
 
 - name: Autoremove packages Ubuntu
   apt:
