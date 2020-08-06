@@ -1,5 +1,6 @@
 ### TODO #
 * Сделать проверку версии агента puppet на хостах
+* Добавить настройку времени unlink /etc/localtime && ln -s /usr/share/zoneinfo/Europe/Kiev
 
 ### Установка ansible последней версии #
 
