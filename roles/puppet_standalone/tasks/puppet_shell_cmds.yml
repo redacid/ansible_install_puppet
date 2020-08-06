@@ -1,6 +1,6 @@
 ---
 - name: Run cmds on remote hosts
-  shell: uptime
+  shell: date && uptime
   register: results
 
 - debug:
