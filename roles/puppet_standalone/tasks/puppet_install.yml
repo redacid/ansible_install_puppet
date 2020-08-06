@@ -10,6 +10,7 @@
   yum:
     name: puppet
     state: absent
+    autoremove: yes
   #become: true
   when: ansible_distribution == 'CentOS'
 
@@ -18,6 +19,7 @@
     name: puppet
     state: absent
     purge: yes
+    autoremove: yes
   #become: true
   when: ansible_distribution == 'Ubuntu'
 
@@ -37,7 +39,6 @@
 #  with_items:
 #    - puppet-agent
      name: ['puppet-agent']
-     autoremove: yes
   notify: Enable-and-Start-Puppet-Agent
   when: ansible_distribution == 'CentOS'
 
@@ -47,7 +48,6 @@
   #with_items:
   #  - puppet-agent
      name: ['puppet-agent']
-     autoremove: yes
   notify: Enable-and-Start-Puppet-Agent
   when: ansible_distribution == 'Ubuntu'
 
