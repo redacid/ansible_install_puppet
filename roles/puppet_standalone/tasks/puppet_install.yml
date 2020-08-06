@@ -17,14 +17,14 @@
   apt:
     name: puppet
     state: absent
-    #purge: yes
+    purge: yes
   become: true
-  #when: ansible_distribution == 'Ununtu'
+  when: ansible_distribution == 'Ubuntu'
 
 - name: Autoremove packages Ubuntu
   apt:
     autoremove: yes
-  when: ansible_distribution == 'Ununtu'
+  when: ansible_distribution == 'Ubuntu'
 
 - name: Autoremove packages CentOS
   yum:
