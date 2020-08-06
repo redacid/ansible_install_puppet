@@ -1,0 +1,8 @@
+---
+- name: Install Shell Tools
+  hosts: "{{ DEPLOYSERVERS }}"
+  gather_facts: true
+  become: true
+  tasks:
+    - import_role:
+        name: install_shell_tools

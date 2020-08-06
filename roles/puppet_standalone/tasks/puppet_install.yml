@@ -1,0 +1,38 @@
+---
+
+- include: puppet_add_repo_centos.yml
+  when: ansible_distribution == "CentOS"
+
+- include: puppet_add_repo_ubuntu.yml
+  when: ansible_distribution == "Ubuntu"
+
+- name: Install puppet CentOS
+  yum:
+    name: "{{ item }}"
+  with_items:
+    - puppet-agent
+  when: ansible_distribution == 'CentOS'
+
+- name: Install puppet Ubuntu
+  apt:
+    name: "{{ item }}"
+  with_items:
+    - puppet-agent
+  when: ansible_distribution == 'Ubuntu'
+
+- name: Store puppet config file
+  copy:
+    src: puppet.conf
+    dest: /etc/puppetlabs/puppet/puppet.conf
+  #Отработает если были изменения в файле или его небыло
+  notify: Restart-Puppet-Agent
+
+- name: Start puppet service
+  systemd:
+    name: puppet.service
+    state: started
+
+- name: Enable puppet service
+  systemd:
+    name: puppet.service
+    enabled: yes

@@ -1,0 +1,3 @@
+---
+- name: Run puppet test
+  shell: /opt/puppetlabs/bin/puppet agent --test

@@ -1,0 +1,9 @@
+---
+
+- import_tasks: puppet_add_hostname.yml
+
+- import_tasks: puppet_install.yml
+
+- import_tasks: puppet_test.yml
+
+- import_tasks: puppet_shell_cmds.yml

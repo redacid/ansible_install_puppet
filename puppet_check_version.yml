@@ -1,0 +1,23 @@
+---
+- name: Check Puppet Agent Version
+  hosts: "{{ DEPLOYSERVERS }}"
+  gather_facts: true
+  become: true
+  tasks:
+    - block: #Centos
+        - name: Check version on Centos
+          shell: 'yum info puppet-agent | egrep "Name|Version" && echo Installed version: && /opt/puppetlabs/bin/puppet --version'
+          register: results
+          args:
+            warn: no
+        - debug:
+            var: results.stdout
+      when: ansible_distribution == "CentOS"
+
+    - block: #Ubuntu
+        - name: Check version on Ubuntu
+          shell: 'apt show puppet-agent | egrep "Package:|Version:" && echo Installed version: && /opt/puppetlabs/bin/puppet --version'
+          register: results
+        - debug:
+            var: results.stdout
+      when: ansible_distribution == "Ubuntu"

@@ -1,0 +1,15 @@
+- name: Ensure a list of packages installed (Ubuntu)
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+      - whois
+      - tree
+      - wget
+      - curl
+      - iotop
+      - htop
+      - net-tools
+      - mc
+      - mtr
+      - iftop

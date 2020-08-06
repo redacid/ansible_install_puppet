@@ -1,0 +1,17 @@
+- name: Replace a node2 ip
+  lineinfile:
+    path: /etc/hosts
+    regexp: '^192\.168\.4\.6'
+    line: 192.168.4.6 node2.ios.in.ua node2
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Replace a node4 ip
+  lineinfile:
+    path: /etc/hosts
+    regexp: '^192\.168\.4\.8'
+    line: 192.168.4.8 node4.ios.in.ua node4
+    owner: root
+    group: root
+    mode: '0644'

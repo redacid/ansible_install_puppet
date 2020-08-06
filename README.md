@@ -1,4 +1,69 @@
-# README #
+### Show inventory ###
+
+`ansible-inventory --list`
+
+or 
+
+`ansible-inventory --graph`
+
+
+### Copy file to all hosts in inventory ###
+
+`ansible all -m copy -a "src=testfile.txt dest=/home/ansible mode=644" -b`
+
+### Delete file on all hosts in inventory ###
+
+`ansible all -m file -a "path=/home/ansible/testfile.txt state=absent" -b`
+
+### Execute command on all hosts in inventory #
+
+`ansible all -m shell -a "uptime"`
+
+
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 This README would normally document whatever steps are necessary to get your application up and running.
 

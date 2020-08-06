@@ -1,0 +1,7 @@
+---
+- name: Run cmds on remote hosts
+  shell: uptime
+  register: results
+
+- debug:
+    var: results.stdout

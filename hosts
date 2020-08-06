@@ -1,0 +1,10 @@
+[test-ubuntu]
+node1.ios.in.ua
+node3.ios.in.ua
+
+[test-centos]
+node4.ios.in.ua
+
+[test-servers:children]
+test-ubuntu
+test-centos

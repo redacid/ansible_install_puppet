@@ -1,0 +1,5 @@
+---
+- name: Restart-Puppet-Agent
+  systemd:
+    name: puppet.service
+    state: restarted
