@@ -8,13 +8,13 @@
 
 - name: Deinstall older version of puppet CentOS
   yum:
-    name: ['puppet']
+    name: puppet
     state: absent
   when: ansible_distribution == 'CentOS'
 
 - name: Deinstall older version of puppet Ubuntu
   apt:
-    name: ['puppet']
+    name: puppet
     state: absent
     #purge: yes
   when: ansible_distribution == 'Ununtu'
