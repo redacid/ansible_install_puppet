@@ -16,7 +16,7 @@
   apt:
     name: ['puppet']
     state: absent
-    purge: yes
+    #purge: yes
   when: ansible_distribution == 'Ununtu'
 
 - name: Autoremove packages Ubuntu
