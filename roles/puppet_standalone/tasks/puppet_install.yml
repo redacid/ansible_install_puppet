@@ -21,15 +21,15 @@
   #become: true
   when: ansible_distribution == 'Ubuntu'
 
-- name: Autoremove packages Ubuntu
-  apt:
-    autoremove: yes
-  when: ansible_distribution == 'Ubuntu'
+#- name: Autoremove packages Ubuntu
+#  apt:
+#    autoremove: yes
+#  when: ansible_distribution == 'Ubuntu'
 
-- name: Autoremove packages CentOS
-  yum:
-    autoremove: yes
-  when: ansible_distribution == 'CentOS'
+#- name: Autoremove packages CentOS
+#  yum:
+#    autoremove: yes
+#  when: ansible_distribution == 'CentOS'
 
 - name: Install puppet CentOS
   yum:
@@ -37,6 +37,7 @@
 #  with_items:
 #    - puppet-agent
      name: ['puppet-agent']
+     autoremove: yes
   notify: Enable-and-Start-Puppet-Agent
   when: ansible_distribution == 'CentOS'
 
@@ -46,6 +47,7 @@
   #with_items:
   #  - puppet-agent
      name: ['puppet-agent']
+     autoremove: yes
   notify: Enable-and-Start-Puppet-Agent
   when: ansible_distribution == 'Ubuntu'
 
