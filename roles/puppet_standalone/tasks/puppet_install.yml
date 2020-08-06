@@ -10,7 +10,7 @@
   yum:
     name: puppet
     state: absent
-  become: true
+  #become: true
   when: ansible_distribution == 'CentOS'
 
 - name: Deinstall older version of puppet Ubuntu
@@ -18,7 +18,7 @@
     name: puppet
     state: absent
     purge: yes
-  become: true
+  #become: true
   when: ansible_distribution == 'Ubuntu'
 
 - name: Autoremove packages Ubuntu

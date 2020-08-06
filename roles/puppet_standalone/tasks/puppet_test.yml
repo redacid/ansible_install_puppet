@@ -1,3 +1,4 @@
 ---
 - name: Run puppet test(if test FAILED with error "Another puppet instance is already running..." is not a problem)
   shell: /opt/puppetlabs/bin/puppet agent --test
+  become: yes
