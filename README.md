@@ -1,94 +1,52 @@
-### Show inventory ###
+### Перед запуском сценариев на всех хостах #
+##### Centos #
+
+`useradd --home-dir /home/ansible --groups wheel --create-home --shell /bin/bash --password PASSWORD ansible`
+
+##### Ubuntu #
+`useradd --home-dir /home/ansible --groups sudo --create-home --shell /bin/bash --password PASSWORD ansible`
+
+##### Разрешить повышение прав для пользователя ansible без введения пароля #
+
+`echo "ansible ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/ansible`
+
+тогда в группу sudo или wheel при создании пользователя добавлять не нужно
+
+##### Создать директорию для ключей #
+`mkdir /home/ansible/.ssh`
+
+##### Добавить ключ для пользователя ansible на все хосты #
+
+`echo "ssh-rsa AAAAB3NzaC1y .... d6IcbQ== ansible@node2.ios.in.ua" | sudo tee /home/ansible/.ssh/authorized_keys`
+`chown -R ansible:ansible /home/ansible/.ssh`
+`chmod 755 /home/ansible/.ssh`
+`chmod 644 /home/ansible/.ssh/authorized_keys`
+
+Проверка ключей при запуске проводиться не будет тк в конфигурационном файле(ansible.cfg) указана опция host_key_checking = false в секции [defaults]
+
+### Просмотреть inventory ###
 
 `ansible-inventory --list`
-
 or 
-
 `ansible-inventory --graph`
 
-
-### Copy file to all hosts in inventory ###
+### Копировать файл на все хосты inventory ###
 
 `ansible all -m copy -a "src=testfile.txt dest=/home/ansible mode=644" -b`
 
-### Delete file on all hosts in inventory ###
+### Удалить файл со всех хостов inventory ###
 
 `ansible all -m file -a "path=/home/ansible/testfile.txt state=absent" -b`
 
-### Execute command on all hosts in inventory #
+### Выполнить коммандку на всех хостах inventory #
 
 `ansible all -m shell -a "uptime"`
 
+### Считать все переменные с хостов inventory #
 
--
--
--
--
--
--
--
--
--
--
--
--
--
--
--
--
--
--
--
--
--
--
--
--
+`ansible all -m setup`
 
 
+### Запустить сценарий на группу серверов #
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-This README would normally document whatever steps are necessary to get your application up and running.
-
-### What is this repository for? ###
-
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
-
-### How do I get set up? ###
-
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
-
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+`ansible-playbook puppet.yml --extra-var "DEPLOYSERVERS=test_servers"`

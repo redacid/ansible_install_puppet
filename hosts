@@ -1,10 +1,10 @@
-[test-ubuntu]
+[test_ubuntu]
 node1.ios.in.ua
 node3.ios.in.ua
 
-[test-centos]
+[test_centos]
 node4.ios.in.ua
 
-[test-servers:children]
-test-ubuntu
-test-centos
+[test_servers:children]
+test_ubuntu
+test_centos
