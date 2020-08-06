@@ -8,16 +8,18 @@
 
 - name: Install puppet CentOS
   yum:
-    name: "{{ item }}"
-  with_items:
-    - puppet-agent
+#    name: "{{ item }}"
+#  with_items:
+#    - puppet-agent
+     name: ['puppet-agent']
   when: ansible_distribution == 'CentOS'
 
 - name: Install puppet Ubuntu
   apt:
-    name: "{{ item }}"
-  with_items:
-    - puppet-agent
+  #  name: "{{ item }}"
+  #with_items:
+  #  - puppet-agent
+     name: ['puppet-agent']
   when: ansible_distribution == 'Ubuntu'
 
 - name: Store puppet config file
