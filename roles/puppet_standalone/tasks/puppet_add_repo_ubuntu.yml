@@ -8,8 +8,6 @@
 - name: Install the puppet deb from a remote repo (Ubuntu)
   apt:
     deb: https://apt.puppet.com/puppet6-release-{{ansible_distribution_release}}.deb
-    #state: present
-    #when: ansible_distribution_major_version == '18'
 
 - name: Run the equivalent of "apt-get update" (Ubuntu)
   apt:

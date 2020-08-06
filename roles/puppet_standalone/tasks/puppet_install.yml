@@ -6,13 +6,12 @@
 - include: puppet_add_repo_ubuntu.yml
   when: ansible_distribution == "Ubuntu"
 
-- name: Deinstall older version of puppet CentOS
-  yum:
-    name: puppet
-    state: absent
-    #autoremove: yes
-  #become: true
-  when: ansible_distribution == 'CentOS'
+# Тупой yum удаляет puppet-agent если пробовать удалить yum puppet, нужно придумать как проверять версию, пока комментирую
+#- name: Deinstall older version of puppet CentOS
+#  yum:
+#    name: puppet
+#    state: absent
+#  when: ansible_distribution == 'CentOS'
 
 - name: Deinstall older version of puppet Ubuntu
   apt:
@@ -20,18 +19,7 @@
     state: absent
     purge: yes
     autoremove: yes
-  #become: true
   when: ansible_distribution == 'Ubuntu'
-
-#- name: Autoremove packages Ubuntu
-#  apt:
-#    autoremove: yes
-#  when: ansible_distribution == 'Ubuntu'
-
-#- name: Autoremove packages CentOS
-#  yum:
-#    autoremove: yes
-#  when: ansible_distribution == 'CentOS'
 
 - name: Install puppet CentOS
   yum:
