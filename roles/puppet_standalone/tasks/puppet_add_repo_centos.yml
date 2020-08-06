@@ -12,3 +12,8 @@
     value: 1
     create: no
     backup: no
+
+
+- name: Run the equivalent of "yum update"
+  yum:
+    update_cache: yes

@@ -11,7 +11,7 @@
     #state: present
     #when: ansible_distribution_major_version == '18'
 
-- name: Run the equivalent of "apt-get update" as a separate step
+- name: Run the equivalent of "apt-get update"
   apt:
     update_cache: yes
 
