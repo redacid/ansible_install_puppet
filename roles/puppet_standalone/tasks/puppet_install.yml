@@ -39,7 +39,7 @@
 #  with_items:
 #    - puppet-agent
      name: ['puppet-agent']
-  notify: Enable-and-Start-Puppet-Agent
+  notify: Enable-And-Start-Puppet-Agent
   when: ansible_distribution == 'CentOS'
 
 - name: Install puppet Ubuntu
