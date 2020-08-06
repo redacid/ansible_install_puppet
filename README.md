@@ -18,8 +18,11 @@
 ##### Добавить ключ для пользователя ansible на все хосты #
 
 `echo "ssh-rsa AAAAB3NzaC1y .... d6IcbQ== ansible@node2.ios.in.ua" | sudo tee /home/ansible/.ssh/authorized_keys`
+
 `chown -R ansible:ansible /home/ansible/.ssh`
+
 `chmod 755 /home/ansible/.ssh`
+
 `chmod 644 /home/ansible/.ssh/authorized_keys`
 
 Проверка ключей при запуске проводиться не будет тк в конфигурационном файле(ansible.cfg) указана опция host_key_checking = false в секции [defaults]
