@@ -6,6 +6,20 @@
 - include: puppet_add_repo_ubuntu.yml
   when: ansible_distribution == "Ubuntu"
 
+- name: Deinstall older version of puppet CentOS
+  yum:
+    name: ['puppet']
+    removed: removed
+    autoremove: yes
+  when: ansible_distribution == 'CentOS'
+
+- name: Deinstall older version of puppet Ubuntu
+  apt:
+    name: ['puppet']
+    purge: yes
+    autoremove: yes
+  when: ansible_distribution == 'Ununtu'
+
 - name: Install puppet CentOS
   yum:
 #    name: "{{ item }}"
