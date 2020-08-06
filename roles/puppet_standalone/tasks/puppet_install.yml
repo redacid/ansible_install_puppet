@@ -10,7 +10,7 @@
   yum:
     name: puppet
     state: absent
-    autoremove: yes
+    #autoremove: yes
   #become: true
   when: ansible_distribution == 'CentOS'
 
