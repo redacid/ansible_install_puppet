@@ -3,3 +3,14 @@
   systemd:
     name: puppet.service
     state: restarted
+
+- name: Enable-And-Start-Puppet-Agent
+  systemd:
+    name: puppet.service
+    state: started
+  notify: Enable-Puppet-Agent
+
+- name: Enable-Puppet-Agent
+  systemd:
+    name: puppet.service
+    enabled: yes

@@ -37,6 +37,7 @@
 #  with_items:
 #    - puppet-agent
      name: ['puppet-agent']
+  notify: Enable-and-Start-Puppet-Agent
   when: ansible_distribution == 'CentOS'
 
 - name: Install puppet Ubuntu
@@ -45,6 +46,7 @@
   #with_items:
   #  - puppet-agent
      name: ['puppet-agent']
+  notify: Enable-and-Start-Puppet-Agent
   when: ansible_distribution == 'Ubuntu'
 
 - name: Store puppet config file
@@ -54,12 +56,4 @@
   #Отработает если были изменения в файле или его небыло
   notify: Restart-Puppet-Agent
 
-- name: Start puppet service
-  systemd:
-    name: puppet.service
-    state: started
 
-- name: Enable puppet service
-  systemd:
-    name: puppet.service
-    enabled: yes
