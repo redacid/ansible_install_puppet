@@ -1,6 +1,6 @@
-- name: get the rpm or apt package facts
-  package_facts:
-    manager: "auto"
+#- name: get the rpm or apt package facts
+#  package_facts:
+#    manager: "auto"
 
 - name: show puppet version
   debug: var=ansible_facts.packages.puppet[0].version
@@ -15,5 +15,5 @@
   apt:
     update_cache: yes
 
-- debug:
-    msg: https://apt.puppet.com/puppet6-release-{{ansible_distribution_release}}.deb
+#- debug:
+#    msg: https://apt.puppet.com/puppet6-release-{{ansible_distribution_release}}.deb
