@@ -1,4 +1,12 @@
+---
 - name: Set timezone to Europe/Kiev
   timezone:
     name: Europe/Kiev
     hwclock: local
+
+- name: Show datetime settings
+  shell: ls -l /etc/localtime && date && uptime
+  register: results
+
+- debug:
+    var: results.stdout

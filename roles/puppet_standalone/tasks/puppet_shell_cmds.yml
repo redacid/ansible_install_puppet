@@ -1,6 +1,6 @@
 ---
 - name: Run cmds on remote hosts
-  shell: date && uptime
+  shell: ls -l /etc/localtime && date && uptime
   register: results
 
 - debug:
