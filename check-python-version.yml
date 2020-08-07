@@ -5,6 +5,7 @@
   become: true
   vars:
     puppet_version: 3.18.0
+    ansible_python_interpreter: /usr/bin/python3
   tasks:
     # python_version is a given variable, eg. `3.5`
     - name: Check if puppet is already latest
