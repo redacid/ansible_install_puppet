@@ -1,7 +1,7 @@
 ---
 - name: Check Python Version
   hosts: "{{ DEPLOYSERVERS }}"
-  gather_facts: false
+  gather_facts: true
   become: true
   vars:
     python_version: 3.7.0
