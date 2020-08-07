@@ -9,7 +9,7 @@
   tasks:
     # python_version is a given variable, eg. `3.5`
     - name: Check if python is already latest
-      command: /usr/bin/python --version
+      shell: /usr/bin/python --version
       register: python_version_result
       #failed_when: python_version_result.stdout | replace('Python ', '') is version(python_version, '>=')
 
