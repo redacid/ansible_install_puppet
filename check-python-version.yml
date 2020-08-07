@@ -11,7 +11,7 @@
     - name: Check if python is already latest
       command: /usr/bin/python --version
       register: python_version_result
-      failed_when: "{{ python_version_result.stdout | replace('Python ', '') is version(python_version, '>=') }}"
+      failed_when: python_version_result.stdout | replace('Python ', '') is version(python_version, '>=')
 
     - debug:
         var: python_version_result.stdout
