@@ -4,7 +4,7 @@
   gather_facts: true
   become: true
   vars:
-    puppet_version: 6.17.0
+    puppet_version: 6.18.0
   tasks:
     # python_version is a given variable, eg. `3.5`
     - name: Check if puppet is already latest
