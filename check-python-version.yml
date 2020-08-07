@@ -9,9 +9,10 @@
   tasks:
     # python_version is a given variable, eg. `3.5`
     - name: Check if python is already latest
+      # Если использовать python2 то значение возвращаеться в stderr, если python2 то в stdout
       shell: /usr/bin/python3 --version
       register: python_version_result
-      #failed_when: python_version_result.stderr | replace('Python ', '') is version(python_version, '>=')
+      failed_when: python_version_result.stdout | replace('Python ', '') is version(python_version, '>=')
 
     - debug:
         var: python_version_result.stdout
