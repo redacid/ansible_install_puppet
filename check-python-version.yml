@@ -4,17 +4,17 @@
   gather_facts: true
   become: true
   vars:
-    puppet_version: 3.18.0
-    ansible_python_interpreter: /usr/bin/python3
+    puppet_version: 3.5.0
+    ansible_python_interpreter: /usr/bin/python
   tasks:
     # python_version is a given variable, eg. `3.5`
-    - name: Check if puppet is already latest
-      command: /opt/puppetlabs/bin/puppet --version
-      register: puppet_version_result
-      failed_when: "{{ puppet_version_result.stdout is version(puppet_version, '>=') }}"
+    - name: Check if python is already latest
+      command: /usr/bin/python --version
+      register: python_version_result
+      failed_when: "{{ python_version_result.stdout | replace('Python ', '') is version(python_version, '>=') }}"
 
     - debug:
-        var: puppet_version_result.stdout
+        var: python_version_result.stdout
 
 #- name: Install prerequisites
 #  apt: name=python-software-properties state=present
