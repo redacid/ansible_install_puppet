@@ -33,3 +33,12 @@
     owner: root
     group: root
     mode: '0644'
+
+- name: Replace a bu.ra ip
+  lineinfile:
+    path: /etc/hosts
+    regexp: '^192\.168\.4\.16'
+    line: 192.168.4.16 bu.ra bu
+    owner: root
+    group: root
+    mode: '0644'
