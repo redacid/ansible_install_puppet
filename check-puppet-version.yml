@@ -11,7 +11,7 @@
     - name: Check if puppet is already latest
       command: /opt/puppetlabs/bin/puppet --version
       register: puppet_version_result
-      failed_when: "{{ puppet_version_result.stdout is version(puppet_version, '>=') }}"
+      failed_when: puppet_version_result.stdout is version(puppet_version, '>=')
 
     - debug:
         var: puppet_version_result.stdout
