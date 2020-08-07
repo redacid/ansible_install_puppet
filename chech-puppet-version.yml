@@ -1,6 +1,4 @@
 ---
-puppet_version: 6.17.0
-
 - name: Check Puppet Agent Version
   hosts: "{{ DEPLOYSERVERS }}"
   gather_facts: true
