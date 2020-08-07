@@ -1,3 +1,8 @@
+- name: Add Puppet Labs GPG key (Centos)
+  rpm_key:
+    key: https://yum.puppetlabs.com/RPM-GPG-KEY-puppetlabs
+    state: present
+
 - name: Install the puppet rpm from a remote repo (Centos)
   yum:
     name: https://yum.puppet.com/puppet6-release-el-{{ansible_distribution_major_version}}.noarch.rpm

@@ -1,6 +1,6 @@
 ### TODO #
 * Сделать проверку версии агента puppet на хостах
-* Добавить настройку времени unlink /etc/localtime && ln -s /usr/share/zoneinfo/Europe/Kiev
+* ~~Добавить настройку времени unlink /etc/localtime && ln -s /usr/share/zoneinfo/Europe/Kiev~~ сделано в отдельной роли set_timezone
 
 ### Установка ansible последней версии #
 

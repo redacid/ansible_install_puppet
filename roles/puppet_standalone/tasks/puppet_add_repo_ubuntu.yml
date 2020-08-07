@@ -5,6 +5,18 @@
 #- name: show puppet version
 #  debug: var=ansible_facts.packages.puppet[0].version
 
+- name: Ensure dependencies are installed (Ubuntu)
+  apt:
+    name:
+      - apt-transport-https
+      - ca-certificates
+    state: present
+
+- name: Add Puppet Labs apt key (Ubuntu)
+  apt_key:
+    url: https://apt.puppetlabs.com/DEB-GPG-KEY-puppetlabs
+    state: present
+
 - name: Install the puppet deb from a remote repo (Ubuntu)
   apt:
     deb: https://apt.puppet.com/puppet6-release-{{ansible_distribution_release}}.deb

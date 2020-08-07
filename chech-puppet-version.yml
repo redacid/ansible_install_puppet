@@ -1,0 +1,31 @@
+---
+
+---
+
+puppet_version: 6.17.0
+
+- name: Check Puppet Agent Version
+  hosts: "{{ DEPLOYSERVERS }}"
+  gather_facts: true
+  become: true
+  tasks:
+    # python_version is a given variable, eg. `3.5`
+    - name: Check if puppet is already latest
+      command: /opt/puppetlabs/bin/puppet --version
+      register: puppet_version_result
+      failed_when: "{{ puppet_version_result.stdout | version_compare(puppet_version, '>=') }}"
+
+    - debug:
+        var: puppet_version_result.stdout
+
+#- name: Install prerequisites
+#  apt: name=python-software-properties state=present
+#  become: true
+
+#- name: Add deadsnakes repo
+#  apt_repository: repo="ppa:deadsnakes/ppa"
+#  become: true
+
+#- name: Install python
+#  apt: name="python{{ python_version }}-dev" state=present
+#  become: true
