@@ -1,7 +1,11 @@
 ---
 # tasks file for install_shell_tools
 #  - import_tasks: install_commandline_tools.yml
-- import_tasks: install_commandline_tools-centos.yml
+
+#- import_tasks: install_commandline_tools-centos.yml
+#  when: ansible_distribution == "CentOS"
+
+- import_tasks: install_commandline_tools-centos-dnf.yml
   when: ansible_distribution == "CentOS"
 
 - import_tasks: install_commandline_tools-ubuntu.yml
