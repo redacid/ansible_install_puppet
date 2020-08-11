@@ -8,6 +8,10 @@ node3.ios.in.ua
 [test_centos]
 node4.ios.in.ua
 
+[ansible_master]
+node2.ios.in.ua
+
 [test_servers:children]
 test_ubuntu
 test_centos
+ansible_master
