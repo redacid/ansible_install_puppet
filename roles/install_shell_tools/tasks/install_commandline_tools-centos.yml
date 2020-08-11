@@ -12,7 +12,6 @@
 - name: Ensure a list of packages installed (Centos)
   yum:
     name: "{{ packages }}"
-  ansible_python_interpreter: /usr/bin/python
   vars:
     packages:
       - whois
