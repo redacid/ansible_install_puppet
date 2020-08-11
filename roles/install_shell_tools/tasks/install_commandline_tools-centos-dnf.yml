@@ -1,0 +1,29 @@
+- name: Add EPEL repository Centos
+  yum_repository:
+    name: epel
+    description: EPEL YUM repo
+    baseurl: https://download.fedoraproject.org/pub/epel/$releasever/$basearch/
+
+- yum_key:
+    state: present
+    key: https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-7
+
+
+- name: Ensure a list of packages installed (Centos)
+  yum:
+    name: "{{ packages }}"
+  vars:
+    packages:
+      - whois
+      - tree
+      - rsync
+      - wget
+      - curl
+      - iotop
+      - htop
+      - net-tools
+      - mc
+      - mtr
+      - iftop
+      - python3
+      - dnf
