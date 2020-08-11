@@ -10,7 +10,7 @@
 
 
 - name: Ensure a list of packages installed (Centos)
-  yum:
+  dnf:
     name: "{{ packages }}"
   vars:
     packages:
@@ -26,4 +26,3 @@
       - mtr
       - iftop
       - python3
-      - dnf

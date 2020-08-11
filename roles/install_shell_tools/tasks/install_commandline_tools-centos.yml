@@ -26,3 +26,4 @@
       - mtr
       - iftop
       - python3
+      - dnf
