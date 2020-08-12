@@ -28,3 +28,4 @@
       - iftop
       - python3
       - dnf
+      - bind-utils
