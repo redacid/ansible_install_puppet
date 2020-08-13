@@ -18,12 +18,12 @@
 - debug:
     var: copybinary.stdout
 
-- name: Delete temporary files
-  shell: rm -rf /tmp/node_exporter-1.0.1.linux-amd64/
-  register: rmtemp
+#- name: Delete temporary files
+#  shell: rm -rf /tmp/node_exporter-1.0.1.linux-amd64/
+#  register: rmtemp
 
-- debug:
-    var: rmtemp.stdout
+#- debug:
+#    var: rmtemp.stdout
 
 - name: Store Service config file
   copy:
