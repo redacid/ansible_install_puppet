@@ -12,4 +12,5 @@ TimeoutStopSec=20s
 SendSIGKILL=no
 
 [Install]
-WantedBy=multi-user.target
+#WantedBy=multi-user.target
+WantedBy=default.target
