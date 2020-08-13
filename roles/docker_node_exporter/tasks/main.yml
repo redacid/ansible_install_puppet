@@ -1,6 +1,6 @@
 ---
 # tasks file for docker_node_exporter
-- name: "ADD Docker Node Exporter"
+- name: "Docker Node Exporter installation"
   shell: "docker run -d \
             --net="host" \
            --pid="host" \
