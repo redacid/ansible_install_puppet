@@ -3,13 +3,13 @@ Description=Prometheus exporter for machine metrics(Managed by Ansible AWX)
 Documentation=https://github.com/prometheus/node_exporter
 
 [Service]
-Restart=always
-User=prometheus
-EnvironmentFile=/etc/default/prometheus-node-exporter
+#Restart=always
+#User=prometheus
+#EnvironmentFile=/etc/default/prometheus-node-exporter
 ExecStart=/usr/bin/prometheus-node-exporter $ARGS
-ExecReload=/bin/kill -HUP $MAINPID
-TimeoutStopSec=20s
-SendSIGKILL=no
+#ExecReload=/bin/kill -HUP $MAINPID
+#TimeoutStopSec=20s
+#SendSIGKILL=no
 
 [Install]
 #WantedBy=multi-user.target
