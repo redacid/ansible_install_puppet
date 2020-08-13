@@ -3,7 +3,7 @@
 - name: Docker Node Exporter installation
 #- name: Installation
   shell: docker run -d --net="host" --pid="host" -v "/:/host:ro,rslave" quay.io/prometheus/node-exporter --path.rootfs=/host
-  register: install-output
+  register: install_output
 
 - debug:
-    var: install-output.stdout
+    var: install_output.stdout

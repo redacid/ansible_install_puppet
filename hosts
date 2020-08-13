@@ -14,4 +14,4 @@ node2.ios.in.ua
 [test_servers:children]
 test_ubuntu
 test_centos
-ansible_master
+#ansible_master
