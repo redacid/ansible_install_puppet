@@ -1,0 +1,8 @@
+---
+- name: Node-Exporter Install
+  hosts: "{{ DEPLOYSERVERS }}"
+  #gather_facts: true
+  become: true
+  tasks:
+    - import_role:
+        name: install_node_exporter

@@ -1,0 +1,13 @@
+- name: Ensure a list of packages installed (Ubuntu)
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+      - prometheus-node-exporter
+
+
+- name: Enable and Start Service
+  systemd:
+    name: prometheus-node-exporter.service
+    state: enabled
+  notify: Restart-Node-Exporter

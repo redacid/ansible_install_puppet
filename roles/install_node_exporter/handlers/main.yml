@@ -1,2 +1,5 @@
 ---
-# handlers file for install_node_exporter
+- name: Restart-Node-Exporter
+  systemd:
+    name: prometheus-node-exporter.service
+    state: restarted

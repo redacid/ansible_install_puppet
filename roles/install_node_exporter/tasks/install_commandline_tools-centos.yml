@@ -1,0 +1,38 @@
+- name: Download node_exporter-1.0.1.linux-amd64.tar.gz
+  get_url:
+    url: https://github.com/prometheus/node_exporter/releases/download/v1.0.1/node_exporter-1.0.1.linux-amd64.tar.gz
+    dest: /tmp
+    mode: '0440'
+
+- name: Extract archive
+  shell: cd /tmp && tar -xzf node_exporter-1.0.1.linux-amd64.tar.gz
+  register: extract
+
+- debug:
+    var: extract.stdout
+
+- name: Copy binary
+  shell: cp /tmp/node_exporter-1.0.1.linux-amd64/node_exporter /usr/bin/prometheus-node-exporter
+  register: copybinary
+
+- debug:
+    var: copybinary.stdout
+
+- name: Delete temporary files
+  shell: rm -rf /tmp/node_exporter-1.0.1.linux-amd64/
+  register: rmtemp
+
+- debug:
+    var: rmtemp.stdout
+
+- name: Store Service config file
+  copy:
+    src: prometheus-node-exporter.service
+    dest: /lib/systemd/system/prometheus-node-exporter.service
+
+- name: Enable and Start Service
+  systemd:
+    name: prometheus-node-exporter.service
+    state: enabled
+  #Отработает если были изменения в файле или его небыло
+  notify: Restart-Node-Exporter
