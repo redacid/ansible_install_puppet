@@ -2,4 +2,4 @@
 - name: Restart-Node-Exporter
   systemd:
     name: prometheus-node-exporter.service
-    state: reloaded
+    state: restarted
