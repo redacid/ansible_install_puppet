@@ -1,14 +1,8 @@
 ---
 # tasks file for docker_node_exporter
 - name: "Docker Node Exporter installation"
-  shell: "docker run -d \
-            --net="host" \
-           --pid="host" \
-           -v "/:/host:ro,rslave" \
-           quay.io/prometheus/node-exporter \
-           --path.rootfs=/host"
+  shell: docker run -d --net="host" --pid="host" -v "/:/host:ro,rslave" quay.io/prometheus/node-exporter --path.rootfs=/host
   registry: install-output
-
 
   debug:
     var: install-output.stdout
