@@ -55,6 +55,6 @@
   systemd:
     name: prometheus-node-exporter.service
     enabled: yes
-    state: started
+    state: restarted
   #Отработает если были изменения в файле или его небыло
   #notify: Restart-Node-Exporter
