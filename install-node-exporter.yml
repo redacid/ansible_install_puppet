@@ -1,7 +1,7 @@
 ---
 - name: Node-Exporter Install
   hosts: "{{ DEPLOYSERVERS }}"
-  #gather_facts: true
+  gather_facts: true
   become: true
   tasks:
     - import_role:
