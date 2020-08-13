@@ -35,6 +35,18 @@
     src: prometheus-node-exporter
     dest: /etc/default/prometheus-node-exporter
 
+- name: Ensure group 'prometheus' exists
+  group:
+    name: prometheus
+    state: present
+
+- name: Add the user 'prometheus'
+  user:
+    name: prometheus
+    shell: /usr/sbin/nologin
+    groups: prometheus
+    append: yes
+
 - name: Reload System Daemon
   systemd:
     daemon_reload: yes
