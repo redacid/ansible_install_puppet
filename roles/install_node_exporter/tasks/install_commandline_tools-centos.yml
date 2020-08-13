@@ -30,10 +30,16 @@
     src: prometheus-node-exporter.service
     dest: /lib/systemd/system/prometheus-node-exporter.service
 
+- name: Store Default config file
+  copy:
+    src: prometheus-node-exporter
+    dest: /etc/default/prometheus-node-exporter
+
+
 - name: Enable and Start Service
   systemd:
     name: prometheus-node-exporter.service
     enabled: yes
-    state: started
+    state: restarted
   #Отработает если были изменения в файле или его небыло
-  notify: Restart-Node-Exporter
+  #notify: Restart-Node-Exporter
